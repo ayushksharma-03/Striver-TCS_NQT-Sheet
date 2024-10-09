@@ -1,0 +1,72 @@
+What is an Armstrong Number?
+
+An Armstrong number is a special type of number where the sum of the cubes of its individual digits is equal to the original number itself.
+In other words, if you take each digit of the number, cube it, and then add the results together, the sum should be the same as the original number.
+
+Example:
+Let's consider the number 153:
+Breakdown: 153 is composed of the digits 1, 5, and 3.
+Cubing:
+1^3 = 1
+5^3 = 125
+3^3 = 27
+Summing: 1 + 125 + 27 = 153
+Since the sum of the cubes of the digits (153) is equal to the original number (153), 153 is an Armstrong number.
+Note: While the term "Armstrong number" is commonly used, some sources might refer to them as "Narcissistic numbers." 
+The concept remains the same, regardless of the terminology.
+
+**************************************************//code for Armstrong Number//**************************************************
+import java.util.*;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		long sum=0;
+		int orig=n;
+		int nod=String.valueOf(n).length();// gives no of digit
+		while(n>0){
+			int rem=n%10;
+			sum=sum+(long)Math.pow(rem,nod);
+			n=n/10;
+		}
+		// comparing part
+		if(orig==sum){
+			System.out.println("true");
+		}
+		else{
+			System.out.println("false");
+		}
+
+	}
+}
+
+
+
+******************************************************//EXPLAINATION//********************************************************
+// Armstrong Number
+/*n =371-->3,7,1; no of digit are = 3
+sum=3^3+7^3+1^3=27+343+1=371
+n=sum
+it is an armstrong Number
+
+n2=1634-->1,6,3,4--no of digit=4
+sum=1^4+6^4+3^4+4^4=1+1293+81+256=1634
+n2=sum--> armstrong number 
+
+n=123...k , no of digit =k
+sum=1^k+2^k...k^k
+if(n==sum){
+	armstrong
+}
+else {
+	not an armstrong
+}
+rem=n%10--> remainder == last digit;
+sum
+n=n/10;-- quotient ---= number without the last digit whichh was int the previou number
+n=257 
+rem=n%10== 7
+sum operation
+n=n/10-->25*/
