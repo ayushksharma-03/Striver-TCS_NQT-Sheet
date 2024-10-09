@@ -1,0 +1,41 @@
+//CODE FOR PALINDROME NUMBER
+import java.util.*;
+public class Solution {
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int orig=n;
+        int temp=0;
+        
+        /*logic for reversing the number;
+        n=257....752 // % operator -> remainder
+        rem=n%10;--> 7;
+        temp=temp*10+rem;// temp=0*10+7==7; from 257->25
+        // n=n/10-> 257/20->25
+        
+        n=25
+        rem=n%10;-> 5;
+        temp=7*10+5;--> 75
+        n=n/10--from 25-->2
+
+        n=2;
+        rem=2;
+        temp=75*10+2;-->750+2-->752
+        until the number is >0...and lop will terminate when number becomes 0*/
+
+        //reversing our number
+        while(n>0){
+            int rem=n%10;
+            temp=temp*10+rem;
+            n=n/10;
+        }
+        //compare
+        if(orig==temp){
+            System.out.println("true");
+        }
+        else{
+            System.out.println("false");
+        }
+	}
+}
