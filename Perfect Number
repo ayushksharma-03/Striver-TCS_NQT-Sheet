@@ -1,0 +1,42 @@
+************************************************************* PERFECT NUMBER ***********************************************************************
+Let me explain first what's a perfect number is ...
+*************************************************************    THEORY:     ***********************************************************************
+So, A number is said to be a " PERFECT NUMBER " if sum of its all factor except the number itself is equal to the orignial number.
+
+For example : let us take a num = 6 
+So its factors are =[1,2,3] on adding the factor we get ,sum=1+2+3=6 .....so we can see num==sum . So,it is a Perfect number.
+Note : We haven't consider the number itself.Again,if we take example of number say 12
+num=12 its factor are [1,2,3,4,6] on summing them we get 
+sum=16 which is not equals to 12 ..so it's not a perfect number
+
+The code will consist of for loop which will rum from i==0 to i<=n/2...why n/2 i am explaining below:
+For factor or 12 , possible multiple are :
+[1X12],[2X6],[3X4] nor after that we see other factor just changed there position i.e
+[4X3],[6X2],[12X1] so there's no need to calc then and increase the time complexity of the program.Thats why code will execute upto n/2 .
+
+Code: 
+import java.util.*;
+public class Perfect{
+    public static void main(String args[]){
+        // first we declare a scanner class
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number: ");
+        int n = sc.nextInt();
+        int sum = 0;
+        
+        // Start from 1, not 0, and go till n/2
+        
+        for (int i = 1; i <= n / 2; i++) {
+            if (n % i == 0) {
+                sum += i; // add the divisor
+            }
+        }
+
+        // Check if the sum of divisors equals the number
+        if (sum == n) {
+            System.out.println("Perfect Number");
+        } else {
+            System.out.println("Not a Perfect Number");
+        }
+    }
+}
